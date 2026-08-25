@@ -30,3 +30,8 @@ plugins:
 # Custom variables
 owner : "SomeHacker"
 year : "2020"
+
+# GoatCounter analytics - set to your site code (the part before
+# ".goatcounter.com" when you sign up at https://www.goatcounter.com/).
+# Leave blank to disable.
+goatcounter : "b00rito"
