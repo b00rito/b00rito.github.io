@@ -35,3 +35,7 @@ year : "2020"
 # ".goatcounter.com" when you sign up at https://www.goatcounter.com/).
 # Leave blank to disable.
 goatcounter : "b00rito"
+
+# Google Analytics 4 - set to your Measurement ID (looks like "G-XXXXXXXXXX")
+# from a GA4 property at https://analytics.google.com/. Leave blank to disable.
+google_analytics : "G-G9ZNSGHD8X"
