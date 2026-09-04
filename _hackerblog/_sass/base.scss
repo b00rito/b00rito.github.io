@@ -271,3 +271,37 @@ a:active, a:focus {
 #wrapper {
   min-height: calc(100vh - 100px);
 }
+
+/* Post table of contents (kramdown {:toc}) */
+
+#markdown-toc {
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px dashed $conifer;
+  border-radius: 2px;
+  padding: 12px 12px 12px 34px;
+  margin: 0 0 30px 0;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+#markdown-toc::before {
+  content: "Contents";
+  display: block;
+  margin: 0 0 6px -18px;
+  color: $conifer;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 12px;
+}
+
+#markdown-toc ul {
+  margin: 4px 0 4px 18px;
+}
+
+#markdown-toc li {
+  list-style-image: url('../assets/bullet.png');
+}
+
+#markdown-toc a {
+  text-shadow: none;
+}

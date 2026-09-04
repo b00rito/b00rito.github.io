@@ -1,0 +1,86 @@
+# ---------------------------------------------------------------------------
+# hacker-blog override config.
+#
+# Layered ON TOP of _config.yml to switch the build from the Chirpy gem theme
+# to the classic "hacker-blog" theme kept in _hackerblog/. Applied by
+# ./bin/blog when .theme contains "hackerblog":
+#
+#     BUNDLE_WITHOUT=chirpy:test \
+#       bundle exec jekyll build --config _config.yml,_config.hackerblog.yml
+#
+# BUNDLE_WITHOUT=chirpy (set by bin/blog) is what actually removes the Chirpy
+# gem — it auto-injects its assets even with `theme:` unset. This file just
+# points Jekyll at the local hacker-blog templates and restores its settings.
+#
+# Shared settings (title, tagline, url, ...) stay in _config.yml.
+# ---------------------------------------------------------------------------
+
+# Must be `false`, not empty: Jekyll's config merge ignores nil/empty override
+# values, so `theme:` alone would leave Chirpy's `theme:` from _config.yml in
+# place and Jekyll would fail to load the (BUNDLE_WITHOUT'd) gem.
+theme: false
+
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+# hacker-blog theme dirs (kept under _hackerblog/ so the Chirpy build ignores them).
+layouts_dir: _hackerblog/_layouts
+includes_dir: _hackerblog/_includes
+sass:
+  sass_dir: _hackerblog/_sass
+  style: expanded
+  sourcemap: never
+
+# _hackerblog/ is underscore-prefixed → ignored by default. Opt the rendered
+# files back in individually; each carries an explicit `permalink:`.
+include:
+  - _hackerblog/index.html
+  - _hackerblog/about.md
+  - _hackerblog/archive.md
+  - _hackerblog/404.md
+  - _hackerblog/atom.xml
+  - _hackerblog/robots.txt
+  - _hackerblog/css/main.scss
+
+# Keep Chirpy-only sources out of the hacker-blog build.
+exclude:
+  - _tabs
+  - _data
+  - _plugins
+  - index.html          # Chirpy's home page; _hackerblog/index.html replaces it
+  - README.md
+  - license.md
+  - CLAUDE.md
+  - .claude
+  - bin
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - "*.gem"
+  - "*.gemspec"
+
+# Classic hacker-blog behaviour. (No pagination: the fallback theme lists all
+# posts directly — re-add jekyll-paginate + paginate/paginate_path if needed.)
+permalink: /:title
+paginate: false
+future: true
+
+# Vars the hacker-blog templates read that Chirpy's _config.yml does not define.
+author:
+  name: "b00rito"
+  email: "b00rito.dumb@gmail.com"
+  url: "https://b00rito.github.io/"
+owner: "b00rito"
+year: "2026"
+goatcounter: "b00rito"
+google_analytics: "G-G9ZNSGHD8X"
+
+# Chirpy sets per-post `layout: post` + /posts/:title/ permalink via `defaults`.
+# Replace that whole array with the hacker-blog default.
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post

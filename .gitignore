@@ -1,2 +1,20 @@
-_site
-.sass-cache
+# Jekyll
+_site/
+.jekyll-cache/
+.jekyll-metadata
+.sass-cache/
+
+# Bundler
+.bundle/
+vendor/
+
+# OS / editor
+.DS_Store
+*.swp
+
+# local serve log
+.jekyll-serve.log
+
+# Claude Code project config — not committed
+.claude/
+CLAUDE.md

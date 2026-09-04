@@ -1,0 +1,41 @@
+#!/usr/bin/env bash
+# ---------------------------------------------------------------------------
+# Build / serve the blog with whichever theme is selected in ./.theme
+#
+#   ./bin/blog serve         # local preview at http://127.0.0.1:4000
+#   ./bin/blog build         # write ./_site
+#   ./bin/blog serve --port 5000 ...   # extra args pass through to jekyll
+#
+# To switch themes, change the single word in the .theme file:
+#   chirpy      -> Chirpy gem theme          (_config.yml)
+#   hackerblog  -> classic theme, _hackerblog/ (_config.yml + _config.hackerblog.yml)
+# ---------------------------------------------------------------------------
+set -euo pipefail
+cd "$(dirname "$0")/.."
+
+# Chirpy 7.x needs Ruby ~> 3.1; this machine's default rubies are 2.6 and 4.0.
+# Prefer the keg-only Homebrew ruby@3.4 if present, otherwise trust PATH.
+if [ -x /opt/homebrew/opt/ruby@3.4/bin/ruby ]; then
+  export PATH="/opt/homebrew/opt/ruby@3.4/bin:$PATH"
+fi
+
+THEME="$(tr -d '[:space:]' < .theme 2>/dev/null || echo chirpy)"
+CMD="${1:-serve}"; shift || true
+
+case "$THEME" in
+  chirpy)
+    CONFIG="_config.yml"
+    # keep the hacker-blog-only plugins off the load path
+    export BUNDLE_WITHOUT="hackerblog:test" ;;
+  hackerblog)
+    CONFIG="_config.yml,_config.hackerblog.yml"
+    # the Chirpy gem injects its assets/plugins whenever it is loadable,
+    # regardless of `theme:` — so drop the whole group for this build
+    export BUNDLE_WITHOUT="chirpy:test" ;;
+  *)
+    echo "bin/blog: unknown theme '$THEME' in .theme (expected 'chirpy' or 'hackerblog')" >&2
+    exit 1 ;;
+esac
+
+echo "==> theme: $THEME   config: $CONFIG   BUNDLE_WITHOUT=$BUNDLE_WITHOUT"
+exec bundle exec jekyll "$CMD" --config "$CONFIG" "$@"
