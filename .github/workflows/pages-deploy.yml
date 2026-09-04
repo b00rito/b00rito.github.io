@@ -1,17 +1,15 @@
 name: "Build and Deploy"
 on:
-  # Auto-deploy on push is intentionally DISABLED for now.
-  # Re-enable by uncommenting the block below once you're ready to publish.
-  # push:
-  #   branches:
-  #     - main
-  #     - master
-  #   paths-ignore:
-  #     - .gitignore
-  #     - README.md
-  #     - LICENSE
+  push:
+    branches:
+      - main
+      - master
+    paths-ignore:
+      - .gitignore
+      - README.md
+      - LICENSE
 
-  # Manual trigger only (Actions tab -> Run workflow).
+  # Also runnable manually (Actions tab -> Run workflow).
   workflow_dispatch:
 
 permissions:
