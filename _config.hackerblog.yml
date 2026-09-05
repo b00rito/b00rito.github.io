@@ -9,7 +9,7 @@
 #       bundle exec jekyll build --config _config.yml,_config.hackerblog.yml
 #
 # BUNDLE_WITHOUT=chirpy (set by bin/blog) is what actually removes the Chirpy
-# gem — it auto-injects its assets even with `theme:` unset. This file just
+# gem -- it auto-injects its assets even with `theme:` unset. This file just
 # points Jekyll at the local hacker-blog templates and restores its settings.
 #
 # Shared settings (title, tagline, url, ...) stay in _config.yml.
@@ -32,7 +32,7 @@ sass:
   style: expanded
   sourcemap: never
 
-# _hackerblog/ is underscore-prefixed → ignored by default. Opt the rendered
+# _hackerblog/ is underscore-prefixed -> ignored by default. Opt the rendered
 # files back in individually; each carries an explicit `permalink:`.
 include:
   - _hackerblog/index.html
@@ -50,7 +50,8 @@ exclude:
   - _plugins
   - index.html          # Chirpy's home page; _hackerblog/index.html replaces it
   - README.md
-  - license.md
+  - LICENSE
+  - NOTICE
   - CLAUDE.md
   - .claude
   - bin
@@ -61,7 +62,7 @@ exclude:
   - "*.gemspec"
 
 # Classic hacker-blog behaviour. (No pagination: the fallback theme lists all
-# posts directly — re-add jekyll-paginate + paginate/paginate_path if needed.)
+# posts directly -- re-add jekyll-paginate + paginate/paginate_path if needed.)
 permalink: /:title
 paginate: false
 future: true

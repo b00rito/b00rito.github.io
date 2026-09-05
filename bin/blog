@@ -30,7 +30,7 @@ case "$THEME" in
   hackerblog)
     CONFIG="_config.yml,_config.hackerblog.yml"
     # the Chirpy gem injects its assets/plugins whenever it is loadable,
-    # regardless of `theme:` — so drop the whole group for this build
+    # regardless of `theme:` -- so drop the whole group for this build
     export BUNDLE_WITHOUT="chirpy:test" ;;
   *)
     echo "bin/blog: unknown theme '$THEME' in .theme (expected 'chirpy' or 'hackerblog')" >&2
