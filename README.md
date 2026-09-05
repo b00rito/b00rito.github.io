@@ -1,114 +1,103 @@
-# The Hacker-Blog theme
+# b00rito.github.io
 
-*Hacker-Blog is a minimalistic, responsive jekyll theme built for hackers. It is based on the [hacker theme](https://github.com/pages-themes/hacker) for project pages.*
+Source for [b00rito factory](https://b00rito.github.io) -- a software-security
+blog (iOS/macOS internals, reverse engineering, dynamic instrumentation,
+fuzzing).
 
-Demo: [https://ashishchaudhary.in/hacker-blog](https://ashishchaudhary.in/hacker-blog)
+Built with [Jekyll](https://jekyllrb.com). The live site uses the
+[Chirpy](https://github.com/cotes2020/jekyll-theme-chirpy) theme; the original
+minimalist hacker-blog theme is kept as a switchable fallback (see "Switching
+themes" below).
 
-### Included
+## Requirements
 
-1. Pagination
-2. SEO tags
-3. Archive Page
-4. About Page
-5. RSS (`https://base-url/atom`)
-6. Sitemap (`https://base-url/sitemap`)
-7. Google Analytics (optional)
-
-## Usage
-
-1. Fork and Clone this repository
-2. Customize your blog
-3. Add a new post in `_posts/` directory with proper name format (as shown in placeholder posts)
-4. Commit and push to master on a repository named `<githubusername.github.io>`.
-5. Visit `<githubusername>.github.io`
-
-## Local Build
-
-If you want to see the changes before pushing the blog to Github, do a local build.
-
-1. [`gem install jekyll`](https://jekyllrb.com/docs/installation/#install-with-rubygems)
-2. `gem install jekyll-seo-tag`
-3. `gem install jekyll-paginate`
-4. `gem install jekyll-sitemap`
-5. (`cd` to the blog directory, then:) `jekyll serve --watch --port 8000`
-6. Go to `http://0.0.0.0:8000/` in your web browser.
-
-*Note: In case you have set a `baseurl` different than `/` in `_config.yml`, go to `http://0.0.0.0:8000/BASEURL/` instead.*
-
-### Local build using docker
+- Ruby 3.1-3.x (Chirpy 7.x requires `~> 3.1`; Ruby 4.x is not yet supported).
+  On this machine that is the keg-only Homebrew `ruby@3.4`, which `bin/blog`
+  picks up automatically. Otherwise just have a compatible Ruby first on PATH.
+- Bundler (`gem install bundler`), then:
 
 ```bash
-docker run --rm -p 8000:8000 \
-  --volume="LOCATION_OF_YOUR_JEKYLL_BLOG:/srv/jekyll" \
-  -it tocttou/jekyll:3.5 \
-  jekyll serve --watch --port 8000
+bundle install
 ```
 
-Replace `LOCATION_OF_YOUR_JEKYLL_BLOG` with the full path of your blog repository. Visit `http://localhost:8000/` to access the blog.
+## Local development
 
-*Note: In case you have set a `baseurl` different than `/` in `_config.yml`, go to `http://0.0.0.0:8000/BASEURL/` instead.*
+Everything goes through the `bin/blog` wrapper. It selects the Ruby, the
+config file(s), and the Bundler groups for whichever theme is active:
 
-## Customizing
-
-### Configuration variables
-
-Edit the `_config.yml` file and set the following variables:
-
-```yml
-title: [The title of your blog]
-description: [A short description of your blog's purpose]
-author:
-  name: [Your name]
-  email: [Your email address]
-  url: [URL of your website]
-
-baseurl: [The base url for this blog.]
-
-paginate: [Number of posts in one paginated section (default: 3)]
-owner: [Your name]
-year: [Current Year]
+```bash
+./bin/blog serve             # preview at http://127.0.0.1:4000 (auto-reload)
+./bin/blog serve --drafts    # include _drafts/
+./bin/blog build             # write ./_site
 ```
 
-*Note: All links in the site are prepended with `baseurl`. Default `baseurl` is `/`. Any other baseurl can be setup like `baseurl: /hacker-blog`, which makes the site available at `http://domain.name/hacker-blog`.*
+Extra arguments pass straight through to jekyll, e.g.
+`./bin/blog serve --port 5000`.
 
-Additionally, you may choose to set the following optional variables:
+## Writing a post
 
-```yml
-google_analytics: [Your Google Analytics tracking ID]
+Create `_posts/YYYY-MM-DD-title-with-dashes.md` with front matter:
+
+```yaml
+---
+title: "Post title"
+date: 2026-09-06 10:00:00 +0000
+categories: [Frida]      # usually one; [A, B] means A then B
+tags: [frida, ios]       # lowercase
+description: One-line summary for the post list and SEO.
+# pin: true              # stick to top of home
+# mermaid: true          # if the post contains mermaid blocks
+---
 ```
 
-### About Page
+- Chirpy builds the table of contents automatically from the `##` / `###`
+  headings; do not add a `{:toc}` block.
+- Work-in-progress drafts live in `_drafts/` (no date in the filename) and
+  only show with `./bin/blog serve --drafts`.
+- Post images go in `assets/img/posts/<slug>/`.
 
-Edit `about.md`
+There is also a `new-post` helper skill in `.claude/skills/` for scaffolding.
 
-### Layout
+## Switching themes
 
-If you would like to modify the site style:
+The active theme is the single word in `.theme`:
 
-**HTML**
+- `chirpy` (default): the Chirpy gem theme; config is `_config.yml`.
+- `hackerblog`: the classic theme vendored in `_hackerblog/`; config is
+  `_config.yml` plus `_config.hackerblog.yml`.
 
-Footer: Edit `_includes/footer.html`
+Edit `.theme`, then re-run `./bin/blog serve` or `./bin/blog build`. A
+pristine pre-migration snapshot of the hacker-blog site is on the
+`backup/hacker-blog` branch.
 
-Header: Edit `_includes/header.html`
+Expected `hackerblog` build noise: one `Theme: ... got FalseClass` line and
+some Dart Sass `@import` deprecation notices from the vendored
+`_hackerblog/_sass`. Neither breaks the build. The `chirpy` build is clean.
 
-Links in the header: Edit `_includes/links.html`
+## Deployment
 
-Meta tags, blog title display, and additional CSS: Edit `_includes/head.html`
+`.github/workflows/pages-deploy.yml` builds with Chirpy
+(`JEKYLL_ENV=production`), runs htmlproofer, and deploys to GitHub Pages on
+every push to `master` (also runnable manually from the Actions tab). It
+always builds the `chirpy` theme regardless of `.theme`.
 
-Index page layout: Edit `_layouts/default.html`
+Requires Settings -> Pages -> Source = "GitHub Actions".
 
-Post layout: Edit `_layouts/post.html`
+## Layout
 
-**CSS**
-
-Site wide CSS: Edit `_sass/base.scss`
-
-Custom CSS: Make `_sass/custom.scss` and use it. Then add `@import "custom";` to `css/main.scss`
-
-**404 page**
-
-Edit `404.md`
+```
+_config.yml               Chirpy config (the default build)
+_config.hackerblog.yml    overrides for the hacker-blog fallback
+.theme  bin/blog          the theme switch
+_posts/  _drafts/         content
+_tabs/                    Chirpy nav pages (About, Archives, ...)  Chirpy only
+_data/  _plugins/         Chirpy data files / plugins             Chirpy only
+_hackerblog/              the classic theme (layouts, includes, sass, pages)
+assets/img/               images, avatar
+```
 
 ## License
 
-CC0 1.0 Universal
+Original content is Copyright (c) 2026 b00rito, MIT License (see LICENSE).
+Blog posts are also offered under CC BY 4.0. Third-party components and their
+licenses are listed in NOTICE.

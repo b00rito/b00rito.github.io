@@ -1,0 +1,43 @@
+b00rito.github.io
+=================
+
+Original content in this repository -- blog posts, site configuration, the
+bin/blog wrapper, _config.hackerblog.yml, and other project-specific files --
+is Copyright (c) 2026 b00rito and is released under the MIT License (see the
+LICENSE file).
+
+Blog posts are additionally offered under the Creative Commons Attribution
+4.0 International (CC BY 4.0) license, consistent with the notice in the site
+footer.
+
+
+Third-party components
+----------------------
+
+Chirpy (jekyll-theme-chirpy)
+  The live site is built with the Chirpy theme, consumed as a RubyGems
+  dependency (see Gemfile / Gemfile.lock).
+  Copyright (c) 2019 Cotes Chung
+  MIT License. https://github.com/cotes2020/jekyll-theme-chirpy
+
+  Files in this repository were scaffolded from the Chirpy Starter
+  (Copyright (c) 2019 Cotes Chung, MIT License) and remain substantially as
+  provided by it, including:
+    _config.yml
+    index.html
+    _tabs/
+    _data/
+    _plugins/posts-lastmod-hook.rb
+    .github/workflows/pages-deploy.yml
+    Gemfile
+    .editorconfig
+    .gitattributes
+  https://github.com/cotes2020/chirpy-starter
+
+hacker-blog (vendored under _hackerblog/ as a fallback theme)
+  Based on "hacker-blog" by Ashish Chaudhary (tocttou), dedicated to the
+  public domain under CC0 1.0 Universal (see _hackerblog/LICENSE).
+  That theme is in turn based on the "hacker" theme for GitHub Pages,
+  Copyright (c) GitHub, Inc., MIT License.
+  https://github.com/tocttou/hacker-blog
+  https://github.com/pages-themes/hacker
