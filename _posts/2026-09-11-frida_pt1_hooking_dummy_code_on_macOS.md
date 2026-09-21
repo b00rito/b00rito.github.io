@@ -1,5 +1,5 @@
 ---
-title: "Part 1: Frida hooking on macOS"
+title: "Frida (Part 1): hooking dummy code on macOS"
 date: 2026-09-11 21:20:00
 categories: [Frida]
 tags: [frida, macos, arm64, hooking, dynamic-instrumentation,
