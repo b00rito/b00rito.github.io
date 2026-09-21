@@ -4,7 +4,6 @@ date: 2026-09-11 21:20:00
 categories: [Frida]
 tags: [frida, macos, arm64, hooking, dynamic-instrumentation,
       reverse-engineering, javascript]
-description: Intorduction to Frida hooking examples on dummy C programs.
 description: >-
     A hands-on introduction to Frida on macOS/arm64: Intercepting functions
     in a C program, investigating a PAC-related crash and using Stalker as
