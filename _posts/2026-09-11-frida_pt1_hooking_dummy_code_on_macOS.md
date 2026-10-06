@@ -1624,9 +1624,10 @@ few comments, which were stripped here for simplicity.
 
 That's all folks!
 
----
-https://frida.re/
-https://github.com/b00rito/frida_playground.git
-https://armconverter.com/?disasm&code=00+00+80+52%0Ac0+03+5f+d6%0A20+00+80+52%0Ac0+03+5f+d6%0A%0A90+14+00+b0%0A00+02+1f+d6%0A20+00+80+52%0Ac0+03+5f+d6
+## References
+
+- [ARM converter](https://armconverter.com/?disasm&code=00+00+80+52%0Ac0+03+5f+d6%0A20+00+80+52%0Ac0+03+5f+d6%0A%0A90+14+00+b0%0A00+02+1f+d6%0A20+00+80+52%0Ac0+03+5f+d6)
+- [Frida](https://frida.re/)
+- [Scripts for this post](https://github.com/b00rito/frida_playground.git)
 
 EOF
