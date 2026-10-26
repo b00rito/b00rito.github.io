@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1300 920" width="1300" height="920" role="img">
+<title>WebKit's processes and their sandboxes</title>
+<desc>The UI process launches and supervises the WebContent, Networking, GPU and helper processes. Each process runs inside its own sandbox, drawn as a shell around its box; on iOS all of them are also checked against the system-wide platform profile. The operating system runs underneath.</desc>
+<rect width="1300" height="920" fill="#ffffff"/>
+<g id="base">
+<g id="platform-policy"><rect x="20" y="14" width="1260" height="776" rx="18" fill="#fbf3c4" stroke="#b09a2a" stroke-width="1.4" stroke-dasharray="4 4"/><text x="34.0" y="780.0" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12" font-weight="600" font-style="normal" fill="#7a6a12" text-anchor="start">sandbox: platform profile (iOS)</text></g>
+<g id="tree" fill="none" stroke="#8c959f" stroke-width="1.5" stroke-dasharray="5 5"><path d="M650.0,270 V302"/><path d="M182.0,302 H1118.0"/><path d="M182.0,302 V324"/><path d="M494.0,302 V324"/><path d="M806.0,302 V324"/><path d="M1118.0,302 V324"/></g>
+<g id="tree-heads" fill="#8c959f"><path d="M177.0,320 L187.0,320 L182.0,329 z"/><path d="M489.0,320 L499.0,320 L494.0,329 z"/><path d="M801.0,320 L811.0,320 L806.0,329 z"/><path d="M1113.0,320 L1123.0,320 L1118.0,329 z"/></g>
+<text x="660.0" y="294.0" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="normal" font-style="italic" fill="#57606a" text-anchor="start">launches and supervises</text>
+<g id="sandbox-ui"><rect x="370" y="28" width="560" height="242" rx="15" fill="#e6eaf0" stroke="#a7b5cb" stroke-width="1.5"/><text x="384.0" y="261.0" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12" font-weight="600" font-style="normal" fill="#3b5b8c" text-anchor="start">sandbox: App sandbox (iOS Safari)</text></g>
+<g id="box-ui">
+<rect x="380" y="38" width="540" height="200" rx="9" fill="#ffffff" stroke="#3b5b8c" stroke-opacity="0.7" stroke-width="1.5"/>
+<path d="M380,47 a9,9 0 0 1 9,-9 h522 a9,9 0 0 1 9,9 v32 h-540 z" fill="#3b5b8c"/>
+<text x="394.0" y="66.0" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="19" font-weight="600" font-style="normal" fill="#ffffff" text-anchor="start">UI process</text>
+<text x="908.0" y="65.0" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="600" font-style="normal" fill="#ffffff" text-anchor="end">trust: highest</text>
+<text x="394.0" y="102.0" font-family="Menlo, Monaco, 'Courier New', monospace" font-size="12.5" font-weight="normal" font-style="normal" fill="#57606a" text-anchor="start">Safari, or any app embedding WKWebView</text>
+<text x="394.0" y="133.0" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="14.5" font-weight="normal" font-style="normal" fill="#1f2328" text-anchor="start">window, tabs, address bar, permission prompts</text>
+<text x="394.0" y="156.0" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="14.5" font-weight="normal" font-style="normal" fill="#1f2328" text-anchor="start">cookie policy, history, settings</text>
+<text x="394.0" y="179.0" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="14.5" font-weight="normal" font-style="normal" fill="#1f2328" text-anchor="start">launches and supervises the other processes</text>
+</g>
+<g id="sandbox-webcontent"><rect x="38" y="330" width="288" height="322" rx="15" fill="#f5e5e5" stroke="#dba6a6" stroke-width="1.5"/><text x="52.0" y="643.0" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12" font-weight="600" font-style="normal" fill="#b03a3a" text-anchor="start">sandbox: com.apple.WebKit.WebContent</text></g>
+<g id="box-webcontent">
+<rect x="48" y="340" width="268" height="280" rx="9" fill="#ffffff" stroke="#b03a3a" stroke-opacity="0.7" stroke-width="1.5"/>
+<path d="M48,349 a9,9 0 0 1 9,-9 h250 a9,9 0 0 1 9,9 v32 h-268 z" fill="#b03a3a"/>
+<text x="62.0" y="368.0" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="19" font-weight="600" font-style="normal" fill="#ffffff" text-anchor="start">WebContent</text>
+<text x="304.0" y="367.0" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="600" font-style="normal" fill="#ffffff" text-anchor="end">trust: lowest</text>
+<text x="62.0" y="404.0" font-family="Menlo, Monaco, 'Courier New', monospace" font-size="12.5" font-weight="normal" font-style="normal" fill="#57606a" text-anchor="start">com.apple.WebKit.WebContent</text>
+<text x="62.0" y="435.0" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="14.5" font-weight="normal" font-style="normal" fill="#1f2328" text-anchor="start">HTML/CSS parsing, DOM, style</text>
+<text x="62.0" y="458.0" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="14.5" font-weight="normal" font-style="normal" fill="#1f2328" text-anchor="start">layout, painting commands</text>
+<text x="62.0" y="481.0" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="14.5" font-weight="normal" font-style="normal" fill="#1f2328" text-anchor="start">JavaScriptCore: all JS + Wasm</text>
+<text x="62.0" y="504.0" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="14.5" font-weight="normal" font-style="normal" fill="#1f2328" text-anchor="start">interpreter and JIT tiers</text>
+</g>
+<g id="sandbox-networking"><rect x="350" y="330" width="288" height="322" rx="15" fill="#f5ede2" stroke="#debf99" stroke-width="1.5"/><text x="364.0" y="643.0" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12" font-weight="600" font-style="normal" fill="#b5711d" text-anchor="start">sandbox: com.apple.WebKit.Networking</text></g>
+<g id="box-networking">
+<rect x="360" y="340" width="268" height="280" rx="9" fill="#ffffff" stroke="#b5711d" stroke-opacity="0.7" stroke-width="1.5"/>
+<path d="M360,349 a9,9 0 0 1 9,-9 h250 a9,9 0 0 1 9,9 v32 h-268 z" fill="#b5711d"/>
+<text x="374.0" y="368.0" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="19" font-weight="600" font-style="normal" fill="#ffffff" text-anchor="start">Networking</text>
+<text x="616.0" y="367.0" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="600" font-style="normal" fill="#ffffff" text-anchor="end">trust: medium</text>
+<text x="374.0" y="404.0" font-family="Menlo, Monaco, 'Courier New', monospace" font-size="12.5" font-weight="normal" font-style="normal" fill="#57606a" text-anchor="start">com.apple.WebKit.Networking</text>
+<text x="374.0" y="435.0" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="14.5" font-weight="normal" font-style="normal" fill="#1f2328" text-anchor="start">all network loads, HTTP cache</text>
+<text x="374.0" y="458.0" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="14.5" font-weight="normal" font-style="normal" fill="#1f2328" text-anchor="start">cookies</text>
+<text x="374.0" y="481.0" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="14.5" font-weight="normal" font-style="normal" fill="#1f2328" text-anchor="start">site storage: IndexedDB,</text>
+<text x="374.0" y="504.0" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="14.5" font-weight="normal" font-style="normal" fill="#1f2328" text-anchor="start">Cache API, local storage</text>
+</g>
+<g id="sandbox-gpu"><rect x="662" y="330" width="288" height="322" rx="15" fill="#e6eee7" stroke="#a8c3ae" stroke-width="1.5"/><text x="676.0" y="643.0" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12" font-weight="600" font-style="normal" fill="#3d7a4a" text-anchor="start">sandbox: com.apple.WebKit.GPU</text></g>
+<g id="box-gpu">
+<rect x="672" y="340" width="268" height="280" rx="9" fill="#ffffff" stroke="#3d7a4a" stroke-opacity="0.7" stroke-width="1.5"/>
+<path d="M672,349 a9,9 0 0 1 9,-9 h250 a9,9 0 0 1 9,9 v32 h-268 z" fill="#3d7a4a"/>
+<text x="686.0" y="368.0" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="19" font-weight="600" font-style="normal" fill="#ffffff" text-anchor="start">GPU</text>
+<text x="928.0" y="367.0" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="600" font-style="normal" fill="#ffffff" text-anchor="end">trust: medium</text>
+<text x="686.0" y="404.0" font-family="Menlo, Monaco, 'Courier New', monospace" font-size="12.5" font-weight="normal" font-style="normal" fill="#57606a" text-anchor="start">com.apple.WebKit.GPU</text>
+<text x="686.0" y="435.0" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="14.5" font-weight="normal" font-style="normal" fill="#1f2328" text-anchor="start">drawing: canvas, DOM painting</text>
+<text x="686.0" y="458.0" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="14.5" font-weight="normal" font-style="normal" fill="#1f2328" text-anchor="start">WebGL (ANGLE -&gt; Metal)</text>
+<text x="686.0" y="481.0" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="14.5" font-weight="normal" font-style="normal" fill="#1f2328" text-anchor="start">WebGPU (on Metal)</text>
+<text x="686.0" y="504.0" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="14.5" font-weight="normal" font-style="normal" fill="#1f2328" text-anchor="start">media playback, camera/mic</text>
+</g>
+<g id="sandbox-helpers"><rect x="974" y="330" width="288" height="322" rx="15" fill="#ece8f1" stroke="#bcaece" stroke-width="1.5"/><text x="988.0" y="643.0" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12" font-weight="600" font-style="normal" fill="#6a4c93" text-anchor="start">sandbox: com.apple.WebKit.&lt;helper name&gt;</text></g>
+<g id="box-helpers">
+<rect x="984" y="340" width="268" height="280" rx="9" fill="#ffffff" stroke="#6a4c93" stroke-opacity="0.7" stroke-width="1.5"/>
+<path d="M984,349 a9,9 0 0 1 9,-9 h250 a9,9 0 0 1 9,9 v32 h-268 z" fill="#6a4c93"/>
+<text x="998.0" y="368.0" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="19" font-weight="600" font-style="normal" fill="#ffffff" text-anchor="start">Helpers</text>
+<text x="1240.0" y="367.0" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="600" font-style="normal" fill="#ffffff" text-anchor="end">trust: varies</text>
+<text x="998.0" y="404.0" font-family="Menlo, Monaco, 'Courier New', monospace" font-size="12.5" font-weight="normal" font-style="normal" fill="#57606a" text-anchor="start">small specialized services</text>
+<text x="998.0" y="435.0" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="14.5" font-weight="normal" font-style="normal" fill="#1f2328" text-anchor="start">Model: 3D models (visionOS)</text>
+<text x="998.0" y="458.0" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="14.5" font-weight="normal" font-style="normal" fill="#1f2328" text-anchor="start">webpushd: web push</text>
+<text x="998.0" y="481.0" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="14.5" font-weight="normal" font-style="normal" fill="#1f2328" text-anchor="start">adattributiond: ad clicks</text>
+<text x="998.0" y="606.0" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="normal" font-style="italic" fill="#57606a" text-anchor="start">Model's profile includes WebContent's</text>
+</g>
+<g id="common-sb"><path d="M38,656 V664 H950 V656" fill="none" stroke="#57606a" stroke-width="1.6" stroke-dasharray="2 4" stroke-linecap="round"/><text x="494.0" y="682.0" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="normal" font-style="italic" fill="#57606a" text-anchor="middle">common.sb: shared source rules copied during build</text></g>
+<g id="box-os"><rect x="20" y="812" width="1260" height="66" rx="10" fill="#eef1f4" stroke="#8c959f" stroke-width="1.2" stroke-dasharray="7 5"/><text x="650.0" y="850.0" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="14" font-weight="normal" font-style="normal" fill="#57606a" text-anchor="middle">macOS / iOS: system daemons (Mach services), drivers (IOKit), kernel (enforces every sandbox)</text></g>
+<text x="1280.0" y="900.0" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="italic" fill="#57606a" text-anchor="end">trust = rating based on how exposed the process is to an attacker</text>
+</g>
+</svg>
