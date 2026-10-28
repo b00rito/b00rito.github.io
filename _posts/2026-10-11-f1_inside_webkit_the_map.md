@@ -23,9 +23,10 @@ WebKit is several programs rather than one.
 
 ## A map of the source tree
 
-WebKit lives at github.com/WebKit/WebKit [1]. Apple pushes release branches
-(`safari-7621.2.5-branch`, ...) and tags (`WebKit-7621.2.5.11.8`, ...)
-there alongside `main` [2]. The parts that matter for security work:
+The WebKit source code lives at github.com/WebKit/WebKit [1]. In there
+Apple pushes release branches like `safari-7621.2.5-branch` and tags like
+`WebKit-7621.2.5.11.8` alongside `main` [2]. Some parts of the source code
+that are more critical for security work are the following:
 
 | Path | What's there |
 |---|---|
