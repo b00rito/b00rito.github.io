@@ -13,15 +13,15 @@ part: F2
 ---
 
 WebKit bugs can be distinguished in two categories: an "RCE" and an "SBX".
-The core idea behind this is *which process* the bug lives in and *which
-wall* it lets an attacker cross. This post defines those words using the
-process model from [Inside WebKit: a map of the engine and its
-processes]({% post_url 2026-10-11-f1_inside_webkit_the_map %}) [1].
+The core idea behind this is which process the bug lives in and which wall
+it lets an attacker cross. This post defines those worlds using the process
+model from [Inside WebKit: a map of the engine and its processes]({%
+post_url 2026-10-11-f1_inside_webkit_the_map %}) [1].
 
 ## What is an "RCE"?
 
 In browser security, an **RCE (Remote Code Execution)** usually means that
-*a web page can make the WebContent process run attacker controlled code*.
+a web page can make the WebContent process run attacker controlled code.
 It is called "remote" because all it takes is the victim loading a URL, so
 the attack payload is coming from a remote server.
 
@@ -45,7 +45,7 @@ The main targets are the following:
 Getting code execution in WebContent is a big deal on its own. However the
 attacker is in the smallest box with the fewest privileges. No network
 sockets, no camera, limited files, and on iOS a very restricted set of
-reachable system services and kernel APIs [1].
+reachable system services and kernel APIs due to sandbox restrictions [1].
 
 ## What is an "SBX"?
 
@@ -66,11 +66,11 @@ usually means [1]:
   sandbox. These are outside WebKit, but often the next link in a chain.
 
 An SBX bug doesn't require the attackers to already control WebContent, but
-it's far stronger if they do. A compromised renderer can send *any* IPC
-message with *any* arguments, skipping the checks that WebCore would
-normally apply before sending. That's why receivers should validate
-everything. Any check that lives only on the WebContent side protects
-nothing once WebContent is compromised.
+it's far stronger if they do. A compromised renderer can send any IPC
+message with any arguments, skipping the checks that WebCore would normally
+apply before sending. That's why receivers should validate everything. Any
+check that lives only on the WebContent side protects nothing once
+WebContent is compromised.
 
 ## Chains
 
@@ -102,9 +102,9 @@ implementation are simply unreachable under it.
 
 | Wall | What crosses it |
 |---|---|
-| Web page -> WebContent | Memory-safety bugs in code that processes web content, mostly the JavaScript engine |
-| WebContent -> GPU / Networking / UI | Bugs in how those processes handle WebContent's IPC messages |
-| WebContent -> anything, without a message | Shared memory, capabilities, direct Mach services |
+| Web page -> WebContent | Memory-safety bugs in code that processes web content, like JavaScript engine |
+| WebContent -> GPU/Networking/UI | Bugs in how those processes handle WebContent's IPC messages |
+| WebContent -> anything | Shared memory, capabilities, direct Mach services |
 | WebContent -> the OS | Whatever the sandbox still allows: system calls, drivers, system daemons |
 
 ## References
