@@ -188,7 +188,7 @@ $ defaults read /System/Library/Frameworks/WebKit.framework/Resources/Info.plist
 When we open a page in Safari, e.g. on an iPhone, we are running several
 cooperating processes:
 
-![WebKit's processes and their sandboxes](webkit_processes_sandbox_v8_base.svg)
+![WebKit's processes and their sandboxes](webkit_processes_sandbox_base.svg)
 *The UI process launches and supervises the others. Each process runs in
 its own sandbox and on iOS every one is also checked against the platform
 profile; the OS runs underneath.*
