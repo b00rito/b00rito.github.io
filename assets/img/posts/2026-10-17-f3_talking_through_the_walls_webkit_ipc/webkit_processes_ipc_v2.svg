@@ -1,0 +1,124 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1300 1130" width="1300" height="1130" role="img">
+<title>IPC between WebKit's processes, one arrow per direction (WebKit-7621.2.5.11.8)</title>
+<desc>The UI process launches and supervises the WebContent, Networking, GPU and helper processes. Each process runs inside its own sandbox, drawn as a shell around its box; on iOS all of them are also checked against the system-wide platform profile. The operating system runs underneath.</desc>
+<rect width="1300" height="1130" fill="#ffffff"/>
+<g id="base">
+<g id="platform-policy"><rect x="20" y="14" width="1260" height="776" rx="18" fill="#fbf3c4" stroke="#b09a2a" stroke-width="1.4" stroke-dasharray="4 4"/><text x="34.0" y="780.0" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12" font-weight="600" font-style="normal" fill="#7a6a12" text-anchor="start">sandbox: platform profile (iOS)</text></g>
+<g id="sandbox-ui"><rect x="370" y="28" width="560" height="242" rx="15" fill="#e6eaf0" stroke="#a7b5cb" stroke-width="1.5"/><text x="384.0" y="261.0" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12" font-weight="600" font-style="normal" fill="#3b5b8c" text-anchor="start">sandbox: App sandbox (iOS Safari)</text></g>
+<g id="box-ui">
+<rect x="380" y="38" width="540" height="200" rx="9" fill="#ffffff" stroke="#3b5b8c" stroke-opacity="0.7" stroke-width="1.5"/>
+<path d="M380,47 a9,9 0 0 1 9,-9 h522 a9,9 0 0 1 9,9 v32 h-540 z" fill="#3b5b8c"/>
+<text x="394.0" y="66.0" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="19" font-weight="600" font-style="normal" fill="#ffffff" text-anchor="start">UI process</text>
+<text x="908.0" y="65.0" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="600" font-style="normal" fill="#ffffff" text-anchor="end">trust: highest</text>
+<text x="394.0" y="102.0" font-family="Menlo, Monaco, 'Courier New', monospace" font-size="12.5" font-weight="normal" font-style="normal" fill="#57606a" text-anchor="start">Safari, or any app embedding WKWebView</text>
+<text x="394.0" y="133.0" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="14.5" font-weight="normal" font-style="normal" fill="#1f2328" text-anchor="start">window, tabs, address bar, permission prompts</text>
+<text x="394.0" y="156.0" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="14.5" font-weight="normal" font-style="normal" fill="#1f2328" text-anchor="start">cookie policy, history, settings</text>
+<text x="394.0" y="179.0" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="14.5" font-weight="normal" font-style="normal" fill="#1f2328" text-anchor="start">launches and supervises the other processes</text>
+</g>
+<g id="sandbox-webcontent"><rect x="38" y="330" width="288" height="322" rx="15" fill="#f5e5e5" stroke="#dba6a6" stroke-width="1.5"/><text x="52.0" y="643.0" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12" font-weight="600" font-style="normal" fill="#b03a3a" text-anchor="start">sandbox: com.apple.WebKit.WebContent</text></g>
+<g id="box-webcontent">
+<rect x="48" y="340" width="268" height="280" rx="9" fill="#ffffff" stroke="#b03a3a" stroke-opacity="0.7" stroke-width="1.5"/>
+<path d="M48,349 a9,9 0 0 1 9,-9 h250 a9,9 0 0 1 9,9 v32 h-268 z" fill="#b03a3a"/>
+<text x="62.0" y="368.0" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="19" font-weight="600" font-style="normal" fill="#ffffff" text-anchor="start">WebContent</text>
+<text x="304.0" y="367.0" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="600" font-style="normal" fill="#ffffff" text-anchor="end">trust: lowest</text>
+<text x="62.0" y="404.0" font-family="Menlo, Monaco, 'Courier New', monospace" font-size="12.5" font-weight="normal" font-style="normal" fill="#57606a" text-anchor="start">com.apple.WebKit.WebContent</text>
+<text x="62.0" y="435.0" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="14.5" font-weight="normal" font-style="normal" fill="#1f2328" text-anchor="start">HTML/CSS parsing, DOM, style</text>
+<text x="62.0" y="458.0" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="14.5" font-weight="normal" font-style="normal" fill="#1f2328" text-anchor="start">layout, painting commands</text>
+<text x="62.0" y="481.0" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="14.5" font-weight="normal" font-style="normal" fill="#1f2328" text-anchor="start">JavaScriptCore: all JS + Wasm</text>
+<text x="62.0" y="504.0" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="14.5" font-weight="normal" font-style="normal" fill="#1f2328" text-anchor="start">interpreter and JIT tiers</text>
+</g>
+<g id="sandbox-networking"><rect x="350" y="330" width="288" height="322" rx="15" fill="#f5ede2" stroke="#debf99" stroke-width="1.5"/><text x="364.0" y="643.0" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12" font-weight="600" font-style="normal" fill="#b5711d" text-anchor="start">sandbox: com.apple.WebKit.Networking</text></g>
+<g id="box-networking">
+<rect x="360" y="340" width="268" height="280" rx="9" fill="#ffffff" stroke="#b5711d" stroke-opacity="0.7" stroke-width="1.5"/>
+<path d="M360,349 a9,9 0 0 1 9,-9 h250 a9,9 0 0 1 9,9 v32 h-268 z" fill="#b5711d"/>
+<text x="374.0" y="368.0" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="19" font-weight="600" font-style="normal" fill="#ffffff" text-anchor="start">Networking</text>
+<text x="616.0" y="367.0" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="600" font-style="normal" fill="#ffffff" text-anchor="end">trust: medium</text>
+<text x="374.0" y="404.0" font-family="Menlo, Monaco, 'Courier New', monospace" font-size="12.5" font-weight="normal" font-style="normal" fill="#57606a" text-anchor="start">com.apple.WebKit.Networking</text>
+<text x="374.0" y="435.0" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="14.5" font-weight="normal" font-style="normal" fill="#1f2328" text-anchor="start">all network loads, HTTP cache</text>
+<text x="374.0" y="458.0" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="14.5" font-weight="normal" font-style="normal" fill="#1f2328" text-anchor="start">cookies</text>
+<text x="374.0" y="481.0" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="14.5" font-weight="normal" font-style="normal" fill="#1f2328" text-anchor="start">site storage: IndexedDB,</text>
+<text x="374.0" y="504.0" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="14.5" font-weight="normal" font-style="normal" fill="#1f2328" text-anchor="start">Cache API, local storage</text>
+</g>
+<g id="sandbox-gpu"><rect x="662" y="330" width="288" height="322" rx="15" fill="#e6eee7" stroke="#a8c3ae" stroke-width="1.5"/><text x="676.0" y="643.0" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12" font-weight="600" font-style="normal" fill="#3d7a4a" text-anchor="start">sandbox: com.apple.WebKit.GPU</text></g>
+<g id="box-gpu">
+<rect x="672" y="340" width="268" height="280" rx="9" fill="#ffffff" stroke="#3d7a4a" stroke-opacity="0.7" stroke-width="1.5"/>
+<path d="M672,349 a9,9 0 0 1 9,-9 h250 a9,9 0 0 1 9,9 v32 h-268 z" fill="#3d7a4a"/>
+<text x="686.0" y="368.0" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="19" font-weight="600" font-style="normal" fill="#ffffff" text-anchor="start">GPU</text>
+<text x="928.0" y="367.0" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="600" font-style="normal" fill="#ffffff" text-anchor="end">trust: medium</text>
+<text x="686.0" y="404.0" font-family="Menlo, Monaco, 'Courier New', monospace" font-size="12.5" font-weight="normal" font-style="normal" fill="#57606a" text-anchor="start">com.apple.WebKit.GPU</text>
+<text x="686.0" y="435.0" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="14.5" font-weight="normal" font-style="normal" fill="#1f2328" text-anchor="start">drawing: canvas, DOM painting</text>
+<text x="686.0" y="458.0" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="14.5" font-weight="normal" font-style="normal" fill="#1f2328" text-anchor="start">WebGL (ANGLE -&gt; Metal)</text>
+<text x="686.0" y="481.0" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="14.5" font-weight="normal" font-style="normal" fill="#1f2328" text-anchor="start">WebGPU (on Metal)</text>
+<text x="686.0" y="504.0" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="14.5" font-weight="normal" font-style="normal" fill="#1f2328" text-anchor="start">media playback, camera/mic</text>
+</g>
+<g id="sandbox-helpers"><rect x="974" y="330" width="288" height="322" rx="15" fill="#ece8f1" stroke="#bcaece" stroke-width="1.5"/><text x="988.0" y="643.0" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12" font-weight="600" font-style="normal" fill="#6a4c93" text-anchor="start">sandbox: com.apple.WebKit.&lt;helper name&gt;</text></g>
+<g id="box-helpers">
+<rect x="984" y="340" width="268" height="280" rx="9" fill="#ffffff" stroke="#6a4c93" stroke-opacity="0.7" stroke-width="1.5"/>
+<path d="M984,349 a9,9 0 0 1 9,-9 h250 a9,9 0 0 1 9,9 v32 h-268 z" fill="#6a4c93"/>
+<text x="998.0" y="368.0" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="19" font-weight="600" font-style="normal" fill="#ffffff" text-anchor="start">Helpers</text>
+<text x="1240.0" y="367.0" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="600" font-style="normal" fill="#ffffff" text-anchor="end">trust: varies</text>
+<text x="998.0" y="404.0" font-family="Menlo, Monaco, 'Courier New', monospace" font-size="12.5" font-weight="normal" font-style="normal" fill="#57606a" text-anchor="start">small specialized services</text>
+<text x="998.0" y="435.0" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="14.5" font-weight="normal" font-style="normal" fill="#1f2328" text-anchor="start">Model: 3D models (visionOS)</text>
+<text x="998.0" y="458.0" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="14.5" font-weight="normal" font-style="normal" fill="#1f2328" text-anchor="start">webpushd: web push</text>
+<text x="998.0" y="481.0" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="14.5" font-weight="normal" font-style="normal" fill="#1f2328" text-anchor="start">adattributiond: ad clicks</text>
+<text x="998.0" y="606.0" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="normal" font-style="italic" fill="#57606a" text-anchor="start">Model's profile includes WebContent's</text>
+</g>
+<g id="box-os"><rect x="20" y="812" width="1260" height="66" rx="10" fill="#eef1f4" stroke="#8c959f" stroke-width="1.2" stroke-dasharray="7 5"/><text x="650.0" y="850.0" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="14" font-weight="normal" font-style="normal" fill="#57606a" text-anchor="middle">macOS / iOS: system daemons (Mach services), drivers (IOKit), kernel (enforces every sandbox)</text></g>
+<text x="1280.0" y="900.0" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="italic" fill="#57606a" text-anchor="end">trust = rating based on how exposed the process is to an attacker</text>
+</g>
+<g id="overlay-1">
+<defs><marker id="arrow-000000" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#000000"/></marker></defs>
+<defs><marker id="arrow-5254a3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#5254a3"/></marker></defs>
+<defs><marker id="arrow-843c39" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#843c39"/></marker></defs>
+<defs><marker id="arrow-7f7f7f" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7f7f7f"/></marker></defs>
+<defs><marker id="arrow-637939" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#637939"/></marker></defs>
+<defs><marker id="arrow-e7298a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e7298a"/></marker></defs>
+<defs><marker id="arrow-393b79" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#393b79"/></marker></defs>
+<defs><marker id="arrow-17becf" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#17becf"/></marker></defs>
+<defs><marker id="arrow-e377c2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e377c2"/></marker></defs>
+<defs><marker id="arrow-a6761d" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a6761d"/></marker></defs>
+<defs><marker id="arrow-8c564b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#8c564b"/></marker></defs>
+<defs><marker id="arrow-9467bd" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#9467bd"/></marker></defs>
+<defs><marker id="arrow-d62728" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d62728"/></marker></defs>
+<defs><marker id="arrow-2ca02c" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2ca02c"/></marker></defs>
+<defs><marker id="arrow-ff7f0e" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#ff7f0e"/></marker></defs>
+<defs><marker id="arrow-1f77b4" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1f77b4"/></marker></defs>
+<path d="M370.0,120.0 L150.0,120.0 L150.0,330.0" fill="none" stroke="#1f77b4" stroke-width="3" marker-end="url(#arrow-1f77b4)"/>
+<path d="M210.0,330.0 L210.0,170.0 L370.0,170.0" fill="none" stroke="#ff7f0e" stroke-width="3" marker-end="url(#arrow-ff7f0e)"/>
+<path d="M430.0,270.0 L430.0,330.0" fill="none" stroke="#2ca02c" stroke-width="3" marker-end="url(#arrow-2ca02c)"/>
+<path d="M480.0,330.0 L480.0,270.0" fill="none" stroke="#d62728" stroke-width="3" marker-end="url(#arrow-d62728)"/>
+<path d="M740.0,270.0 L740.0,330.0" fill="none" stroke="#9467bd" stroke-width="3" marker-end="url(#arrow-9467bd)"/>
+<path d="M790.0,330.0 L790.0,270.0" fill="none" stroke="#8c564b" stroke-width="3" marker-end="url(#arrow-8c564b)"/>
+<path d="M930.0,90.0 L1205.0,90.0 L1205.0,330.0" fill="none" stroke="#a6761d" stroke-width="3" marker-end="url(#arrow-a6761d)"/>
+<path d="M930.0,130.0 L1050.0,130.0 L1050.0,330.0" fill="none" stroke="#e377c2" stroke-width="3" marker-end="url(#arrow-e377c2)"/>
+<path d="M995.0,330.0 L995.0,170.0 L930.0,170.0" fill="none" stroke="#17becf" stroke-width="3" marker-end="url(#arrow-17becf)"/>
+<path d="M130.0,652.0 L130.0,720.0 L742.0,720.0 L742.0,652.0" fill="none" stroke="#393b79" stroke-width="3" marker-end="url(#arrow-393b79)"/>
+<path d="M720.0,652.0 L720.0,708.0 L152.0,708.0 L152.0,652.0" fill="none" stroke="#e7298a" stroke-width="3" marker-end="url(#arrow-e7298a)"/>
+<path d="M230.0,652.0 L230.0,688.0 L432.0,688.0 L432.0,652.0" fill="none" stroke="#637939" stroke-width="3" marker-end="url(#arrow-637939)"/>
+<path d="M410.0,652.0 L410.0,676.0 L252.0,676.0 L252.0,652.0" fill="none" stroke="#7f7f7f" stroke-width="3" marker-end="url(#arrow-7f7f7f)"/>
+<path d="M60.0,652.0 L60.0,752.0 L1032.0,752.0 L1032.0,652.0" fill="none" stroke="#843c39" stroke-width="3" marker-end="url(#arrow-843c39)"/>
+<path d="M1010.0,652.0 L1010.0,740.0 L82.0,740.0 L82.0,652.0" fill="none" stroke="#5254a3" stroke-width="3" marker-end="url(#arrow-5254a3)"/>
+<path d="M560.0,652.0 L560.0,772.0 L1205.0,772.0 L1205.0,652.0" fill="none" stroke="#000000" stroke-width="3" marker-end="url(#arrow-000000)"/>
+<text x="978.0" y="318.0" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="13" font-weight="600" font-style="normal" fill="#6a4c93" text-anchor="end">Model</text>
+<text x="1190.0" y="318.0" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="13" font-weight="600" font-style="normal" fill="#6a4c93" text-anchor="end">webpushd</text>
+<text x="978.0" y="671.0" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="13" font-weight="600" font-style="normal" fill="#6a4c93" text-anchor="end">Model</text>
+<text x="1190.0" y="671.0" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="13" font-weight="600" font-style="normal" fill="#6a4c93" text-anchor="end">webpushd</text>
+<text x="40.0" y="930.0" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="13" font-weight="600" font-style="normal" fill="#1f2328" text-anchor="start">IPC directions in the Safari 18.5 tag (interfaces, messages)</text>
+<rect x="40.0" y="949" width="22" height="6" fill="#1f77b4"/><text x="70.0" y="957.0" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="normal" font-style="normal" fill="#1f2328" text-anchor="start">UI -&gt; WebContent: 41 interfaces, 920 messages</text>
+<rect x="40.0" y="971" width="22" height="6" fill="#ff7f0e"/><text x="70.0" y="979.0" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="normal" font-style="normal" fill="#1f2328" text-anchor="start">WebContent -&gt; UI: 36 interfaces, 780 messages</text>
+<rect x="40.0" y="993" width="22" height="6" fill="#2ca02c"/><text x="70.0" y="1001.0" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="normal" font-style="normal" fill="#1f2328" text-anchor="start">UI -&gt; Networking: 6 interfaces, 210 messages</text>
+<rect x="40.0" y="1015" width="22" height="6" fill="#d62728"/><text x="70.0" y="1023.0" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="normal" font-style="normal" fill="#1f2328" text-anchor="start">Networking -&gt; UI: 4 interfaces, 66 messages</text>
+<rect x="40.0" y="1037" width="22" height="6" fill="#9467bd"/><text x="70.0" y="1045.0" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="normal" font-style="normal" fill="#1f2328" text-anchor="start">UI -&gt; GPU: 2 interfaces, 42 messages</text>
+<rect x="40.0" y="1059" width="22" height="6" fill="#8c564b"/><text x="70.0" y="1067.0" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="normal" font-style="normal" fill="#1f2328" text-anchor="start">GPU -&gt; UI: 1 interface, 11 messages</text>
+<rect x="40.0" y="1081" width="22" height="6" fill="#a6761d"/><text x="70.0" y="1089.0" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="normal" font-style="normal" fill="#1f2328" text-anchor="start">UI -&gt; webpushd: 1 interface, 22 messages</text>
+<rect x="40.0" y="1103" width="22" height="6" fill="#e377c2"/><text x="70.0" y="1111.0" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="normal" font-style="normal" fill="#1f2328" text-anchor="start">UI -&gt; Model: 2 interfaces, 13 messages</text>
+<rect x="650.0" y="949" width="22" height="6" fill="#17becf"/><text x="680.0" y="957.0" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="normal" font-style="normal" fill="#1f2328" text-anchor="start">Model -&gt; UI: 1 interface, 4 messages</text>
+<rect x="650.0" y="971" width="22" height="6" fill="#393b79"/><text x="680.0" y="979.0" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="normal" font-style="normal" fill="#1f2328" text-anchor="start">WebContent -&gt; GPU: 64 interfaces, 845 messages</text>
+<rect x="650.0" y="993" width="22" height="6" fill="#e7298a"/><text x="680.0" y="1001.0" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="normal" font-style="normal" fill="#1f2328" text-anchor="start">GPU -&gt; WebContent: 22 interfaces, 112 messages</text>
+<rect x="650.0" y="1015" width="22" height="6" fill="#637939"/><text x="680.0" y="1023.0" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="normal" font-style="normal" fill="#1f2328" text-anchor="start">WebContent -&gt; Networking: 17 interfaces, 266 messages</text>
+<rect x="650.0" y="1037" width="22" height="6" fill="#7f7f7f"/><text x="680.0" y="1045.0" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="normal" font-style="normal" fill="#1f2328" text-anchor="start">Networking -&gt; WebContent: 16 interfaces, 627 messages</text>
+<rect x="650.0" y="1059" width="22" height="6" fill="#843c39"/><text x="680.0" y="1067.0" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="normal" font-style="normal" fill="#1f2328" text-anchor="start">WebContent -&gt; Model: 3 interfaces, 17 messages</text>
+<rect x="650.0" y="1081" width="22" height="6" fill="#5254a3"/><text x="680.0" y="1089.0" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="normal" font-style="normal" fill="#1f2328" text-anchor="start">Model -&gt; WebContent: 2 interfaces, 6 messages</text>
+<rect x="650.0" y="1103" width="22" height="6" fill="#000000"/><text x="680.0" y="1111.0" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="normal" font-style="normal" fill="#1f2328" text-anchor="start">Networking -&gt; webpushd: 1 interface, 22 messages</text>
+</g>
+</svg>
