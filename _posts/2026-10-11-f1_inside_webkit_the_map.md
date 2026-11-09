@@ -225,6 +225,24 @@ from MobileSafari's own entitlements, extracted from the iOS 18.7.3 IPSW:
 | webpushd | `com.apple.WebKit.webpushd` |
 | adattributiond | `com.apple.WebKit.adattributiond` |
 
+### Who starts whom
+
+The UI process is in charge of the others. It asks for every helper process
+to be started, keeps a connection to each one, watches them and can
+terminate them (`Source/WebKit/UIProcess/Launcher/`). On macOS the helpers
+are XPC services, so the system's `launchd` is what actually starts them.
+The UI process is their parent in the sense that it owns them, not in the
+Unix sense.
+
+The UI process also connects the rest of the processes to each other. They
+can't find each other on their own, so when WebContent needs the Networking
+or the GPU process, it asks the UI process. The UI process passes one end
+of a new connection to each side using messages like
+`GetNetworkProcessConnection` and `CreateGPUProcessConnection`, defined in
+`Source/WebKit/UIProcess/WebProcessProxy.messages.in`). From then on,
+WebContent talks to the Networking and GPU processes directly, without the
+UI process in between.
+
 ### Why split things up?
 
 The process split landed in 2010 with WebKit2. WebKit's own WebKit2
